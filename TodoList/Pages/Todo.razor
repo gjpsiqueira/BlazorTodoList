@@ -1,0 +1,32 @@
+﻿@page "/todo"
+@using TodoList.Shared
+
+<h1>Today</h1>
+<span class="date"> @DateTime.UtcNow.ToString("d") - @DateTime.Now.ToString("HH:mm")</span>
+
+@if (todoItemList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!todoItemList.Any())
+{
+    <p><em>You have no tasks.</em></p>
+}
+else
+{
+    @foreach (var item in todoItemList)
+    {
+        <Card OnDeleteCallback="(() => HandleDelete(item.id))">
+            @item.description
+        </Card>
+    }
+}
+
+<EditForm EditContext="editContext" OnSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="action mt-5">
+        <InputText @bind-Value="todoItem.description" type="text" class="form-control w-50" placeholder="Written your task" />
+        <button class="btn btn-primary"><span class="oi oi-plus" aria-hidden="true"></span> Add task</button>
+    </div>
+</EditForm>

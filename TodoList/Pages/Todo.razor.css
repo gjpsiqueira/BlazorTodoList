@@ -1,0 +1,15 @@
+﻿h1 {
+    font-size: 39px;
+    color: #0E0E2C;
+}
+
+.date {
+    color:#8C8CA1;
+}
+
+.action {
+    display:flex;
+    align-items:center;
+    gap:3px;
+}
+
