@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="ProtectedBrowserStorage.NETStandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ProtectedBrowserStorage.NETStandard" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
 </Project>
